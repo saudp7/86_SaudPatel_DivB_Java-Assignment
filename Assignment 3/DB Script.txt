@@ -1,0 +1,103 @@
+/* =========================================
+   ASSIGNMENT 3 DATABASE SETUP
+   ========================================= */
+
+
+/* =========================================
+   Q1 – Currency Converter Database
+   ========================================= */
+
+DROP DATABASE IF EXISTS currencydb;
+CREATE DATABASE currencydb;
+
+USE currencydb;
+
+CREATE TABLE currency_rates(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    from_currency VARCHAR(10),
+    to_currency VARCHAR(10),
+    rate DOUBLE
+);
+
+INSERT INTO currency_rates (from_currency,to_currency,rate) VALUES
+('USD','INR',83.2),
+('INR','USD',0.012),
+('EUR','INR',90.5),
+('INR','EUR',0.011),
+('USD','EUR',0.92),
+('EUR','USD',1.08);
+
+
+/* =========================================
+   Q2 – Visitor Counter Database
+   ========================================= */
+
+DROP DATABASE IF EXISTS visitdb;
+CREATE DATABASE visitdb;
+
+USE visitdb;
+
+CREATE TABLE page_visits(
+    ip_address VARCHAR(50) PRIMARY KEY,
+    visits INT
+);
+
+
+/* =========================================
+   Q3 – Product + Category CRUD Database
+   ========================================= */
+
+DROP DATABASE IF EXISTS shopdb;
+CREATE DATABASE shopdb;
+
+USE shopdb;
+
+CREATE TABLE category_master(
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(100)
+);
+
+CREATE TABLE product_master(
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100),
+    price DOUBLE,
+    stock INT,
+    category_id INT,
+    FOREIGN KEY(category_id)
+    REFERENCES category_master(category_id)
+);
+
+INSERT INTO category_master(category_name) VALUES
+('Electronics'),
+('Books'),
+('Clothing'),
+('Accessories');
+
+INSERT INTO product_master(product_name,price,stock,category_id) VALUES
+('Laptop',70000,5,1),
+('Java Programming Book',500,20,2),
+('T-Shirt',800,15,3),
+('Headphones',1500,10,4);
+
+
+/* =========================================
+   Q4 – Book Shop Shopping Cart Database
+   ========================================= */
+
+DROP DATABASE IF EXISTS bookshop;
+CREATE DATABASE bookshop;
+
+USE bookshop;
+
+CREATE TABLE books(
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    price DOUBLE
+);
+
+INSERT INTO books(title,price) VALUES
+('Java Programming',500),
+('Spring Boot Guide',650),
+('Web Development',450),
+('Database Systems',550),
+('Microservices Architecture',700);

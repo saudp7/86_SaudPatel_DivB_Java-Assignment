@@ -1,0 +1,115 @@
+show databases;
++--------------------+
+| Database           |
++--------------------+
+| Ass_1              |
+| fashion_store      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test_db            |
++--------------------+
+7 rows in set (0.011 sec)
+
+MariaDB [(none)]> use fashion_store;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [fashion_store]> show tables;
++-------------------------+
+| Tables_in_fashion_store |
++-------------------------+
+| category_master         |
+| order_details           |
+| order_master            |
+| product_master          |
+| user_master             |
+| visit_log               |
++-------------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [fashion_store]> desc category_master;
++--------------------+--------------+------+-----+---------+----------------+
+| Field              | Type         | Null | Key | Default | Extra          |
++--------------------+--------------+------+-----+---------+----------------+
+| category_id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| category_name      | varchar(100) | YES  |     | NULL    |                |
+| parent_category_id | int(11)      | YES  |     | NULL    |                |
++--------------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.010 sec)
+
+MariaDB [fashion_store]> desc order_details;
++-----------------+---------------+------+-----+---------+----------------+
+| Field           | Type          | Null | Key | Default | Extra          |
++-----------------+---------------+------+-----+---------+----------------+
+| order_detail_id | int(11)       | NO   | PRI | NULL    | auto_increment |
+| order_id        | int(11)       | YES  |     | NULL    |                |
+| product_id      | int(11)       | YES  |     | NULL    |                |
+| product_price   | decimal(10,2) | YES  |     | NULL    |                |
+| discount        | decimal(5,2)  | YES  |     | NULL    |                |
++-----------------+---------------+------+-----+---------+----------------+
+5 rows in set (0.001 sec)
+
+MariaDB [fashion_store]> desc order_master;
++----------------+---------------+------+-----+---------+----------------+
+| Field          | Type          | Null | Key | Default | Extra          |
++----------------+---------------+------+-----+---------+----------------+
+| order_id       | int(11)       | NO   | PRI | NULL    | auto_increment |
+| order_datetime | datetime      | YES  |     | NULL    |                |
+| session_id     | varchar(100)  | YES  |     | NULL    |                |
+| payment_mode   | varchar(50)   | YES  |     | NULL    |                |
+| tax            | decimal(10,2) | YES  |     | NULL    |                |
+| total_amount   | decimal(10,2) | YES  |     | NULL    |                |
+| order_status   | varchar(50)   | YES  |     | NULL    |                |
++----------------+---------------+------+-----+---------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [fashion_store]> desc product_master;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| product_id   | int(11)       | NO   | PRI | NULL    | auto_increment |
+| product_name | varchar(100)  | YES  |     | NULL    |                |
+| price        | decimal(10,2) | YES  |     | NULL    |                |
+| unit         | varchar(20)   | YES  |     | NULL    |                |
+| discount     | decimal(5,2)  | YES  |     | NULL    |                |
+| image        | varchar(200)  | YES  |     | NULL    |                |
+| category_id  | int(11)       | YES  |     | NULL    |                |
+| stock        | int(11)       | YES  |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+8 rows in set (0.001 sec)
+
+MariaDB [fashion_store]> desc user_master;
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| user_id           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| username          | varchar(100) | YES  |     | NULL    |                |
+| login_id          | varchar(50)  | YES  |     | NULL    |                |
+| password          | varchar(255) | YES  |     | NULL    |                |
+| password_question | varchar(255) | YES  |     | NULL    |                |
+| password_answer   | varchar(255) | YES  |     | NULL    |                |
+| email             | varchar(100) | YES  |     | NULL    |                |
+| phone             | varchar(20)  | YES  |     | NULL    |                |
+| address           | text         | YES  |     | NULL    |                |
+| city              | varchar(50)  | YES  |     | NULL    |                |
+| state             | varchar(50)  | YES  |     | NULL    |                |
+| country           | varchar(50)  | YES  |     | NULL    |                |
+| pin               | varchar(10)  | YES  |     | NULL    |                |
+| dob               | date         | YES  |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+14 rows in set (0.001 sec)
+
+MariaDB [fashion_store]> desc visit_log;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| visit_id   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| session_id | varchar(100) | YES  |     | NULL    |                |
+| visit_time | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+

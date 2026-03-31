@@ -1,0 +1,5 @@
+com/mycompany/ass/_p01/resources/JakartaEE11Resource.class
+bean/CurrencyConverterBean.class
+util/DBConnection.class
+com/mycompany/ass/_p01/JakartaRestConfiguration.class
+servlet/CurrencyServlet.class

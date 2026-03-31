@@ -1,0 +1,5 @@
+bean/VisitCounterBean.class
+com/mycompany/ass/_p02/JakartaRestConfiguration.class
+util/DBConnection.class
+com/mycompany/ass/_p02/resources/JakartaEE11Resource.class
+servlet/VisitServlet.class

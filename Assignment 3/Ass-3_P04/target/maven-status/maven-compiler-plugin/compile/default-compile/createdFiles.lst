@@ -1,0 +1,7 @@
+bean/CartBean.class
+servlet/CartServlet.class
+servlet/BookServlet.class
+com/mycompany/ass/_p04/JakartaRestConfiguration.class
+model/Book.class
+util/DBConnection.class
+com/mycompany/ass/_p04/resources/JakartaEE11Resource.class
